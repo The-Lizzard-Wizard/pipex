@@ -1,7 +1,7 @@
 NAME = pipex
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
-SRC = main.c pipex.c utils.c
+SRC = pipex.c utils.c
 DEPS = pipex.h
 ODIR = obj/
 OBJ = $(SRC:%.c=$(ODIR)%.o)

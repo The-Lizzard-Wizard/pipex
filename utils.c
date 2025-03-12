@@ -30,3 +30,9 @@ char	*find_path(char *cmd, char **envp)
 	}
 	return (NULL);
 }
+
+void	exit_error(char *error)
+{
+	perror(error);
+	exit(0);
+}

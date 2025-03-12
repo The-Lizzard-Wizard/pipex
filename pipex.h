@@ -14,5 +14,6 @@
 # define PUSH_SWAP_H
 
 char	*find_path(char *cmd, char **envp);
+void	exit_error(char *error);
 
 #endif
