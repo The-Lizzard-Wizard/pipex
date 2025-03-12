@@ -13,25 +13,26 @@ LIBFT = $(LIBFT_DIR)/libft.a
 all: libft_comp $(NAME)
 
 $(NAME) : $(OBJ) $(LIBFT)
-	$(CC) $(OBJ) $(LIBFT) -o $(NAME)
+	@echo "comp pipex"
+	@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 
 libft_comp :
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -s -C $(LIBFT_DIR)
 
 $(ODIR)%.o: %.c Makefile $(DEPS) | $(ODIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(ODIR):
-	mkdir $(ODIR)
+	@mkdir $(ODIR)
 
 clean:
-	rm -rf $(ODIR)
-	$(MAKE) -C ./libft clean
+	@echo "clean all obj"
+	@rm -rf $(ODIR)
+	@$(MAKE) -s -C ./libft clean
 
 fclean: clean
-	rm -rf $(NAME)
-	$(MAKE) -C ./libft fclean
+	@echo "remove exe"
+	@rm -rf $(NAME)
+	@$(MAKE) -s -C ./libft fclean
 
-re:
-	fclean
-	all
+re: fclean all

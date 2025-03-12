@@ -33,25 +33,24 @@ OBJ = $(SRC:%.c=$(ODIR)%.o)
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	ar -rc $(NAME) $(OBJ)
+	@echo "comp libft"
+	@ar -rc $(NAME) $(OBJ)
 
 $(ODIR)%.o: %.c Makefile libft.h | $(ODIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(ODIR):
-	mkdir $(ODIR)
+	@mkdir $(ODIR)
 
 bonus : 
 	$(MAKE) SRC="$(SRC) $(BNS)"
 
 clean:
-	rm -rf $(ODIR)
+	@rm -rf $(ODIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
-re:
-	fclean
-	all
+re: fclean all
 
 .PHONY: all clean fclean re bonus
