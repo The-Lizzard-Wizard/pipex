@@ -1,6 +1,5 @@
 #include "pipex.h"
 #include "libft/libft.h"
-#include <cstdlib>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
