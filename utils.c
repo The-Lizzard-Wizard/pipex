@@ -31,6 +31,11 @@ char	*find_path(char *cmd, char **envp)
 	return (NULL);
 }
 
+int	execute(char **argv, char **envp)
+{
+	
+}
+
 void	exit_error(char *error)
 {
 	perror(error);
