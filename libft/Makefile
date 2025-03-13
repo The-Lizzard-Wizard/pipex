@@ -33,7 +33,7 @@ OBJ = $(SRC:%.c=$(ODIR)%.o)
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	@echo "comp libft"
+	@echo "comp libft 📜 "
 	@ar -rc $(NAME) $(OBJ)
 
 $(ODIR)%.o: %.c Makefile libft.h | $(ODIR)

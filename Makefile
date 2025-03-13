@@ -13,7 +13,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 all: libft_comp $(NAME)
 
 $(NAME) : $(OBJ) $(LIBFT)
-	@echo "comp pipex"
+	@echo "comp pipex 🧙"
 	@$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 
 libft_comp :
@@ -26,12 +26,12 @@ $(ODIR):
 	@mkdir $(ODIR)
 
 clean:
-	@echo "clean all obj"
+	@echo "clean all obj🔮"
 	@rm -rf $(ODIR)
 	@$(MAKE) -s -C ./libft clean
 
 fclean: clean
-	@echo "remove exe"
+	@echo "remove exe 🍄"
 	@rm -rf $(NAME)
 	@$(MAKE) -s -C ./libft fclean
 
