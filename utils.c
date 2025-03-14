@@ -1,4 +1,5 @@
 #include "libft/libft.h"
+#include "pipex.h"
 #include <unistd.h>
 
 char	*find_path(char *cmd, char **envp)
@@ -31,9 +32,16 @@ char	*find_path(char *cmd, char **envp)
 	return (NULL);
 }
 
-int	execute(char **argv, char **envp)
+int	execute(char *cmd_arg, char **envp)
 {
-	
+	char *path;
+	char **cmd;
+
+	path = find_path(cmd_arg, envp);
+	cmd = ft_split(cmd_arg, ' '); // not secure
+	if (execve(path, cmd, envp) == -1)
+		exit_error("execve");
+	return (0);
 }
 
 void	exit_error(char *error)
