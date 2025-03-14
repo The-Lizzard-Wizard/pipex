@@ -1,25 +1,29 @@
 #include "pipex.h"
-#include "libft/libft.h"
+#include <fcntl.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 
 void	child_proc(char **argv, char **envp, int *pipefd)
 {
-	char	**cmd;
+	int	infile;
 
-	cmd = ft_split(argv[2], ' ');
+	infile = open(argv[1], O_RDONLY);
 	close(pipefd[0]);
-	execve(find_path(cmd[0], envp), cmd, envp);
+	dup2(pipefd[1], STDOUT_FILENO);
+	dup2(infile, STDIN_FILENO);
+	execute(argv[2], envp);
 }
 
 void	parent_proc(char **argv, char **envp, int *pipefd)
 {
-	char	**cmd;
+	int	outfile;
 
-	cmd = ft_split(argv[3], ' ');
+	outfile = open(argv[5], O_WRONLY);
 	close(pipefd[1]);
-	execve(find_path(cmd[0], envp), cmd, envp);
+	dup2(pipefd[0], STDIN_FILENO);
+	dup2(outfile, STDOUT_FILENO);
+	execute(argv[3], envp);
 }
 
 int		main(int argc, char **argv, char **envp)
@@ -36,9 +40,7 @@ int		main(int argc, char **argv, char **envp)
 	else if (pid == 0)
 		child_proc(argv, envp, pipefd);
 	else
-	{
 		parent_proc(argv, envp, pipefd);
-	}
 	wait(&pid);
-	return (EXIT_SUCCESS);
+	return (0);
 }

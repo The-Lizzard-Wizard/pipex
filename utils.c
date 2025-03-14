@@ -37,8 +37,8 @@ int	execute(char *cmd_arg, char **envp)
 	char *path;
 	char **cmd;
 
-	path = find_path(cmd_arg, envp);
 	cmd = ft_split(cmd_arg, ' '); // not secure
+	path = find_path(cmd[0], envp);
 	if (execve(path, cmd, envp) == -1)
 		exit_error("execve");
 	return (0);
