@@ -24,9 +24,7 @@ char	*find_path(char *cmd, char **envp)
 			return (NULL); //pute
 		free(path_no_cmd);
 		if (access(path, X_OK) == 0)
-		{
 			return (path);
-		}
 		i++;
 	}
 	return (NULL);

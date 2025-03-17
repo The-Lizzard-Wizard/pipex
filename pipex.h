@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+//valgrind --trace-children=yes --track-fds=yes --leak-check=full
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 

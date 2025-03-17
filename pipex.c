@@ -10,6 +10,7 @@ void	child_proc(char **argv, char **envp, int *pipefd)
 	int	infile;
 
 	infile = open(argv[1], O_RDONLY);
+	//a l aide
 	dup2(pipefd[1], STDOUT_FILENO);
 	dup2(infile, STDIN_FILENO);
 	close(pipefd[0]);
@@ -20,7 +21,8 @@ void	parent_proc(char **argv, char **envp, int *pipefd)
 {
 	int	outfile;
 
-	outfile = open(argv[4], O_WRONLY);
+	outfile = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	//a l aide
 	dup2(pipefd[0], STDIN_FILENO);
 	dup2(outfile, STDOUT_FILENO);
 	close(pipefd[1]);
