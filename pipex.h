@@ -12,8 +12,8 @@
 
 //valgrind --trace-children=yes --track-fds=yes --leak-check=full
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PIPEX_H
+# define PIPEX_H
 
 char	*find_path(char *cmd, char **envp);
 void	exit_error(char *error);

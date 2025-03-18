@@ -24,6 +24,7 @@ char	*find_loop(char	**paths, char	*path_no_cmd, char *cmd)
 			return (freearray(paths), path);
 		i++;
 	}
+	write(2, "invalid command\n", 15);
 	return (freearray(paths), free(path), NULL);
 }
 
@@ -39,14 +40,14 @@ char	*find_path(char *cmd, char **envp)
 		i++;
 	paths = ft_split(envp[i] + 5, ':');
 	if (!paths)
-		return ( NULL);
+		return (NULL);
 	return (find_loop(paths, path_no_cmd, cmd));
 }
 
 int	execute(char *cmd_arg, char **envp)
 {
-	char *path;
-	char **cmd;
+	char	*path;
+	char	**cmd;
 
 	cmd = ft_split(cmd_arg, ' ');
 	if (!cmd)

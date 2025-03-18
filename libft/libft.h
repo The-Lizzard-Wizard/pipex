@@ -36,12 +36,12 @@ char	*ft_strjoin_gnl(char *s1, char const *s2);
 char	*ft_strdup_gnl(const char *s);
 size_t	ft_strlen_gnl(const char *s);
 
-int	ft_putchar(char c, int fd);
-int	ft_putnbr(int n, int fd);
-int	ft_putunbr(unsigned int n, int fd);
-int	ft_putstr(char *s, int fd);
-int	ft_puthex(size_t nbr, char *base, int isptr);
-int	ft_printf(const char *fmt, ...);
+int		ft_putchar(char c, int fd);
+int		ft_putnbr(int n, int fd);
+int		ft_putunbr(unsigned int n, int fd);
+int		ft_putstr(char *s, int fd);
+int		ft_puthex(size_t nbr, char *base, int isptr);
+int		ft_printf(const char *fmt, ...);
 
 int		ft_isalpha(int c);
 int		ft_isalnum(int c);
