@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//valgrind --trace-children=yes --track-fds=yes --leak-check=full
-
 #ifndef PIPEX_H
 # define PIPEX_H
 
