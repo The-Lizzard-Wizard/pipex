@@ -18,5 +18,6 @@
 char	*find_path(char *cmd, char **envp);
 void	exit_error(char *error);
 int		execute(char *cmd_arg, char **envp);
+void	freearray(char **array);
 
 #endif
