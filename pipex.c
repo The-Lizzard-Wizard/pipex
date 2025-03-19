@@ -28,8 +28,7 @@ void	child_proc(char **argv, char **envp, int *pipes, int pid[2])
 		close(pipes[0]);
 		close(pipes[1]);
 		close(infile);
-		if (execute(argv[2], envp) == 0)
-			return ;
+		execute(argv[2], envp, infile);
 	}
 	close(infile);
 }
@@ -57,8 +56,7 @@ void	child2_proc(char **argv, char **envp, int *pipes, int pid[2])
 		close(pipes[1]);
 		close(pipes[0]);
 		close(outfile);
-		if (execute(argv[3], envp) == 0)
-			return ;
+		execute(argv[3], envp, outfile);
 	}
 	close(outfile);
 }

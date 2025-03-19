@@ -15,7 +15,7 @@
 
 char	*find_path(char *cmd, char **envp);
 void	exit_error(char *error);
-int		execute(char *cmd_arg, char **envp);
+int		execute(char *cmd_arg, char **envp, int file);
 void	freearray(char **array);
 
 #endif

@@ -44,21 +44,23 @@ char	*find_path(char *cmd, char **envp)
 	return (find_loop(paths, path_no_cmd, cmd));
 }
 
-int	execute(char *cmd_arg, char **envp)
+int	execute(char *cmd_arg, char **envp, int file)
 {
 	char	*path;
 	char	**cmd;
 
+	cmd = NULL;
 	cmd = ft_split(cmd_arg, ' ');
 	if (!cmd)
-		return (0);
+		return (close(file), 0);
 	path = find_path(cmd[0], envp);
 	if (!path)
-		return (freearray(cmd), 0);
+		return (freearray(cmd), close(file), 0);
 	if (execve(path, cmd, envp) == -1)
 	{
 		freearray(cmd);
 		free(path);
+		close(file);
 		exit_error("execve");
 	}
 	return (0);
