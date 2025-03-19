@@ -77,9 +77,9 @@ int	main(int argc, char **argv, char **envp)
 		exit_error("pipe");
 	child_proc(argv, envp, pipes, pid);
 	child2_proc(argv, envp, pipes, pid);
-	waitpid(pid[0], &help, 0);
-	waitpid(pid[1], &help, 0);
 	close(pipes[0]);
 	close(pipes[1]);
+	waitpid(pid[0], &help, 0);
+	waitpid(pid[1], &help, 0);
 	return (0);
 }
